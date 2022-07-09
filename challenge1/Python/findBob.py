@@ -1,13 +1,10 @@
 def dfs(x, y):
-    global n, m, grid, found, vis
+    global n, m, grid, found
 
     if x >= n or y >= m:
         return
     if grid[x][y] == '#':
         return
-    if vis[x][y] == True:
-        return
-    vis[x][y] = True
     if grid[x][y] == 'B':
         found = True
         return
@@ -16,15 +13,13 @@ def dfs(x, y):
 
 
 def main():
-    global n, m, grid, found, vis
+    global n, m, grid, found
     found = False
-    vis = []
     (n, m) = map(int, input().split())
     grid = []
     for i in range(n):
         s = input()
         grid.append(s)
-        vis.append([False] * m)
     (x, y) = (-1, -1)
     for i in range(0, n):
         for j in range(0, m):
